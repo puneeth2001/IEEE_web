@@ -6,6 +6,7 @@ import UserProvider from "../providers/UserProvider";
 import ProfilePage from "./ProfilePage";
 import { UserContext } from "../providers/UserProvider";
 import PasswordReset from "./PasswordReset";
+import Firebase from "firebase";
 class App extends React.Component {
   constructor(props) {
     super(props);
