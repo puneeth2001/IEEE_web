@@ -6,6 +6,31 @@ import UserProvider from "../providers/UserProvider";
 import ProfilePage from "./ProfilePage";
 import { UserContext } from "../providers/UserProvider";
 import PasswordReset from "./PasswordReset";
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    Firebase.initializeApp(config);
+
+    this.state = {
+      developers: []
+    };
+  }
+
+  componentDidMount() {
+    const myitems = Firebase.database().ref("Documents");
+    myitems.on("value",datasnap=>{
+      console.log(datasnap.val()
+    )}
+    )
+    this.getUserData();
+  }
+  render()
+  {
+    <React.Fragment>
+        <p id="myitems"></p>
+      </React.Fragment>
+  }
+}
 function Application() {
   const user = useContext(UserContext);
   return (
