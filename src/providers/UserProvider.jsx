@@ -1,24 +1,25 @@
 import React, { Component, createContext } from "react";
 import { auth, generateUserDocument } from "../firebase";
+import Firebase from "firebase";
 
 
 export const UserContext = createContext({ user: null });
 
-class UserProvider extends Component {
+class UserProvider extends React.Component {
   state = {
     user: null
   };
 
   
   
-  componentDidMount = async () => {
-    auth.onAuthStateChanged(async userAuth => {
-      const user = await generateUserDocument(userAuth);
-      this.setState({ user });
-    });
-
-
-  };
+  componentDidMount() {
+    const myitems = Firebase.database().ref("/Documents");
+    myitems.on("value",datasnap=>{
+      console.log(datasnap.val()
+    )}
+    )
+   
+  }
 
   render() {
     const { user } = this.state;
